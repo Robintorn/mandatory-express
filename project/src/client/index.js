@@ -36,21 +36,7 @@ fetch('api/posts')
 fetch('api/posts/2')
   .then(response => response.json())
   .then(post => console.log("NEW: getting a single post", post));
-
-fetch('api/post', {
-  method: 'post',
-  body: JSON.stringify({
-    title: 'a new post',
-    body: 'åhhh body'
-  }),
-  headers: {
-    "Content-type": "application/json; charset=UTF-8"
-  }
-})
-  .then(response => response.json())
-  .then(res => console.log("NEW: Adding a new post", res))
-  .catch(err => console.log("NEW: Adding a new post doesn't work for the production source, but this is how we would've done it", err))
-
+  
 // ----------- CORS demonstration -------------
 
 fetch('http://localhost:8888/api/products')
