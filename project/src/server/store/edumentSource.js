@@ -6,7 +6,7 @@ class EdumentSource {
             .then(response => response.json())
             .then(products => products);
     }
-
+    
     getProduct(id) {
         return fetch(`http://demo.edument.se/api/products/${id}`)
             .then(response => {
@@ -30,8 +30,36 @@ class EdumentSource {
             }
         })
         .then(response => response.json());
-
         */
+    }
+
+    getPosts() {
+        return fetch(`https://jsonplaceholder.typicode.com/`)
+            .then(response => response.json())
+            .then(posts => posts)
+    }
+
+    getPost(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw `Post with ID ${id} not found`;
+                }
+
+                return response.json();
+            })
+            .then(post => post);
+    }
+
+    addPost(postData) {
+        return fetch(`https://jsonplaceholder.typicode.com/`, {
+            method: 'ost',
+            body: JSON.stringify(postData),
+            headers: {
+                'Content-type': "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.json());
     }
 
 }
