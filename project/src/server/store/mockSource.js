@@ -11,6 +11,21 @@ const products = [
     }
 ];
 
+const posts = [
+    {
+        userId: 1,
+        id: 1,
+        title: 'kappa',
+        body: 'kommunikation'
+    },
+    {
+        userId: 1,
+        id: 2,
+        title: 'Avancerad JS',
+        body: 'book'
+    }
+];
+
 class mockSource {
     getProducts() {
         return Promise.resolve(products);
@@ -33,6 +48,31 @@ class mockSource {
             name
         };
         products.push(newProduct);
+
+        return Promise.resolve(newProduct);
+    }
+
+    getPosts() {
+        return Promise.resolve(posts);
+    }
+
+    getPost(id) {
+        return new Promise((resolve, reject) => {
+            const found = posts.find(post => post.id === +id);
+            found ? resolve(found) : reject();
+        })
+    }
+
+    addPost({ userId ,title, body }) {
+        const lastIndex = posts.length - 1;
+        const lastId    = posts[lastIndex].id;
+        const newPost = {
+            userId,
+            id: lastId + 1,
+            title,
+            body
+        };
+        posts.push(newPost);
 
         return Promise.resolve(newProduct);
     }

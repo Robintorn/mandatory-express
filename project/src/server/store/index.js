@@ -21,6 +21,18 @@ class Store {
     searchProduct(searchParams) {
         return this.source.searchProduct(searchParams);
     }
+
+    getPosts() {
+        return this.source.getPosts();
+    }
+
+    getPost(id) {
+        return this.source.getPost(id);
+    }
+
+    addPost(postData) {
+        return this.source.addPost(postData);
+    }
 }
 
 let source;
