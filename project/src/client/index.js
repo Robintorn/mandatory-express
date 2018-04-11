@@ -36,7 +36,20 @@ fetch('api/posts')
 fetch('api/posts/2')
   .then(response => response.json())
   .then(post => console.log("NEW: getting a single post", post));
-  
+
+fetch('https://jsonplaceholder.typicode.com/posts/', {
+  method: 'post',
+  body: JSON.stringify({
+    title: "tjena",
+    body: "ja"
+  }),
+  headers: {
+    "Content-type": "application/json; charset=UTF-8"
+  }
+})
+  .then(response => response.json())
+  .then(res => console.log("NEW: Creating a post", res))
+
 // ----------- CORS demonstration -------------
 
 fetch('http://localhost:8888/api/products')

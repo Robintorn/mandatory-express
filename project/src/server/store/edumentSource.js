@@ -19,9 +19,8 @@ class EdumentSource {
             .then(product => product);
     }
 
+    /*
     addProduct(productData) {
-        throw Error('EdumentSource.addProduct not supported!');
-        /* // but otherwise we would've done something like:
         return fetch(`http://demo.edument.se/api/products/`,{
             method: 'post',
             body: JSON.stringify(productData),
@@ -30,8 +29,8 @@ class EdumentSource {
             }
         })
         .then(response => response.json());
-        */
     }
+    */
 
     getPosts() {
         return fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -53,7 +52,7 @@ class EdumentSource {
 
     addPost(postData) {
         return fetch(`https://jsonplaceholder.typicode.com/posts`, {
-            method: 'ost',
+            method: 'post',
             body: JSON.stringify(postData),
             headers: {
                 'Content-type': "application/json; charset=UTF-8"
