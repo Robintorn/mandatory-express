@@ -32,9 +32,9 @@ route.post('/posts', (req, res) => {
 })
 
 route.delete('/posts/:id', (req, res) => {
-    const Id = Number(req.params.id);
+    const id = Number(req.params.id);
 
-    store.deletePost(Id)
+    store.deletePost(id)
         .then(post => res.json(post))
 });
 

@@ -63,6 +63,18 @@ class EdumentSource {
         })
         .then(response => response.json());
     }
+
+    deletePost(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "DELETE"
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw "nopp";
+                }
+                return {id};
+            });
+        }
 }
 
 module.exports = EdumentSource;

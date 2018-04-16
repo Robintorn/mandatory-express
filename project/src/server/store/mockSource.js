@@ -76,18 +76,6 @@ class mockSource {
 
         return Promise.resolve(newPost);
     }
-
-    deletePost(id) {          
-        return new Promise((resolve, reject) => {
-            const found = posts.find(post => post.id === id);
-            const remove = posts.splice(found.id, 1);
-            if(found){
-                resolve(remove);
-            }else{
-                reject();
-            }
-        })
-    }   
 }
 
 module.exports = mockSource;
