@@ -25,10 +25,17 @@ route.get('/posts/:id', (req, res) => {
 })
 
 route.post('/posts', (req, res) => {
-    const postData = JSON.parse(req.body);
-
+    const postData = req.body;
+    
     store.addPost(postData)
         .then(newPost => res.json({ newPost }));
 })
+
+route.delete('/posts/:id', (req, res) => {
+    const Id = Number(req.params.id);
+
+    store.deletePost(Id)
+        .then(post => res.json(post))
+});
 
 module.exports = route;

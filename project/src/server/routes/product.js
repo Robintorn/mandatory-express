@@ -2,6 +2,8 @@ const express = require('express');
 
 const store = require('../store');
 
+//const cors = require('cors');
+
 const route = express.Router();
 
 // GET /api/products
@@ -25,7 +27,7 @@ route.get('/products/:id', (req, res) => {
 })
 
 route.post('/products', (req, res) => {
-    const productData = JSON.parse(req.body);
+    const productData = req.body;
     
     store.addProduct(productData)
         .then(newProduct => res.json({ newProduct }));

@@ -33,6 +33,10 @@ class Store {
     addPost(postData) {
         return this.source.addPost(postData);
     }
+
+    deletePost(Id){
+        return this.source.deletePost(Id);
+    }
 }
 
 let source;

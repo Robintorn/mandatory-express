@@ -19,8 +19,10 @@ class EdumentSource {
             .then(product => product);
     }
 
-    /*
+    
     addProduct(productData) {
+        throw error("EdumentSource.addProduct not supported!");
+        /*
         return fetch(`http://demo.edument.se/api/products/`,{
             method: 'post',
             body: JSON.stringify(productData),
@@ -31,6 +33,7 @@ class EdumentSource {
         .then(response => response.json());
     }
     */
+}
 
     getPosts() {
         return fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -60,7 +63,6 @@ class EdumentSource {
         })
         .then(response => response.json());
     }
-
 }
 
 module.exports = EdumentSource;

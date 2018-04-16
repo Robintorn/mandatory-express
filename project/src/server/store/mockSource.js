@@ -15,7 +15,7 @@ const posts = [
     {
         userId: 1,
         id: 1,
-        title: 'kappa',
+        title: 'k23a',
         body: 'kommunikation'
     },
     {
@@ -74,9 +74,12 @@ class mockSource {
         };
         posts.push(newPost);
 
-        return Promise.resolve(newProduct);
+        return Promise.resolve(newPost);
     }
 
+    deletePost(id){
+        posts.slice(id, 1);
+    }
 }
 
 module.exports = mockSource;
