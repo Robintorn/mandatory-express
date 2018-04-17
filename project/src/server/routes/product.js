@@ -2,13 +2,13 @@ const express = require('express');
 
 const store = require('../store');
 
-const cors = require('cors');
+//const cors = require('cors');
 
 const route = express.Router();
 
 // GET /api/products
 
-route.get('/products', cors(), (req, res) => {
+route.get('/products', (req, res) => {
 
     store.getProducts()
         .then(products => res.json({ products }));
